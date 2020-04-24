@@ -7,7 +7,8 @@ set -e
 # cd ./dist
 git add -A
 git commit -m $1
-# git push 
+git push 
+set -e
 # 把下面的push命令按照你的情况修改后去掉注释
 # 如果发布到 https://<USERNAME>.github.io
 # git push -f git@github.com:lambertlt/learn-english.git master
