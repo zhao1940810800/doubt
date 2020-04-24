@@ -1,0 +1,772 @@
+@charset "utf-8";
+@import './default-color.less';
+
+/**
+ * 默认样式
+ * @file：   reset.less
+ * @author:  田杨
+ * @update:  2019-04-23
+ * @note:    全局重置样式-顶级通用-此文件中的样式所有页面通用,修改此文件中样式建议通知前端所有成员知晓！
+ * @note:    此文件已在main.ts中引入，无需组件中引用，否则会造成上线代码冗余！
+ */
+
+@font-face {
+  font-family: "Regular";
+  src: url("../font/Regular/Regular.ttf") format("truetype"),
+       url("../font/Regular/Regular.woff") format("woff"),
+       url("../font/Regular/Regular.eot") format("embedded-opentype"),
+       url("../font/Regular/Regular.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+textarea,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 13px;
+  vertical-align: baseline;
+  // font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB",
+  //   "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  // font-family: "Bold";
+  font-family: "Regular";
+  -webkit-font-smoothing: antialiased;
+  // font-smoothing: antialiased;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+  height: 100%;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  background-color: #fff;
+  _background-attachment: fixed;
+  _overflow-x: hidden;
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  font-style: normal;
+}
+
+i,
+em {
+  font-weight: normal;
+  font-style: normal;
+}
+a {
+  text-decoration: none;
+  outline: none;
+}
+
+strong {
+  font-weight: bold;
+}
+
+img {
+  vertical-align: middle;
+  outline: none;
+  width: 100%;
+  height: 100%;
+}
+// -function
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  content: "";
+  clear: both;
+  height: 0;
+}
+
+.clearfix {
+  *zoom: 1;
+  *display: inline;
+}
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.empty-tip {
+  text-align: center;
+  color: #909399;
+}
+.required {
+  &:before {
+    content: '*';
+    color: #F56C6C;
+    margin-right: 4px;
+  }
+}
+
+/* 滚动条 */
+::-webkit-scrollbar-thumb:horizontal {
+  /*水平滚动条的样式*/
+  width: 5px;
+  background-color: #cccccc;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #fff;
+  /*滚动条的背景颜色*/
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  /*滚动条的圆角宽度*/
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  /*滚动条的宽度*/
+  height: 8px;
+  /*滚动条的高度*/
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  /*垂直滚动条的样式*/
+  height: 50px;
+  background-color: #999;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  outline: 2px solid #fff;
+  outline-offset: -2px;
+  border: 2px solid #fff;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  /*滚动条的hover样式*/
+  height: 50px;
+  background-color: #9f9f9f;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+.operator-svg {
+  margin-right: 10px;
+}
+/**
+ * 全局定义字体图标样式
+ */
+.svg-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  color: inherit;
+  vertical-align: middle;
+  fill: none;
+  stroke: currentColor;
+  cursor: pointer;
+}
+[class^="el-icon-"] {
+  cursor: pointer;
+}
+
+.svg-fill {
+  fill: currentColor;
+  stroke: none;
+}
+
+.svg-up {
+  /*default*/
+  transform: rotate(0deg);
+}
+
+.svg-right {
+  transform: rotate(90deg);
+}
+
+.svg-down {
+  transform: rotate(180deg);
+}
+
+/**
+ * 重置element-button样式
+ */
+ .el-button {
+  padding: 0 22px;
+  height: 32px;
+  line-height: 32px;
+  font-size: 14px;
+  font-weight: normal;
+  border: 1px solid #3355AB;
+}
+// .el-input.is-disabled .el-input__inner {
+//   background: #222;
+// }
+// .el-button--default {
+//   background-image: linear-gradient(0deg, #222222 0%, #2E2F2F 100%);
+//   border: 1px solid rgba(255,255,255,0.15);
+// }
+.el-button--primary {
+  background-color: #3355AB;
+}
+/**
+ * 重置element-pagination分页样式
+ */
+ .pagination {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  /deep/ .el-pagination__total {
+    position: absolute;
+    left: 0;
+    color: #fff;
+    font-size: 14px;
+  }
+  // 页面按钮
+  /deep/ .el-pagination {
+    li,.btn-prev, .btn-next {
+      width: 24px;
+      height: 24px !important;
+    }
+    li.active {
+      border-color: #3355AB !important;
+    }
+  }
+  // .el-pagination.is-background .btn-prev, .el-pagination.is-background .btn-next {
+  //   border-color: rgba(255,255,255,0.15);
+  //   background-color:#222222;
+  // }
+}
+
+.el-pagination.is-background {
+  .el-pagination__total {
+    height: 24px;
+    line-height: 24px;
+  }
+
+  .el-pager li.number,
+  .el-pager li:last-child,
+  .el-pager li.btn-quickprev,
+  .el-pager li.btn-quicknext {
+    background-color: #ffffff;
+    border: 1px solid #ccd4e4;
+  }
+
+  .el-pager li.active + li {
+    border: 1px solid #ccd4e4;
+  }
+  .el-pager li {
+    width: auto !important;
+  }
+  .btn-prev,
+  .btn-next {
+    background-color: #ffffff;
+    border: 1px solid #ccd4e4;
+
+    .el-icon {
+      text-align: center;
+    }
+  }
+
+  // 页码选择
+  .el-pagination__sizes {
+    margin: 0;
+
+    .el-select .el-input {
+      width: 76px;
+
+      .el-input__inner {
+        height: 24px;
+        padding: 0 20px 0 0;
+      }
+
+      .el-input__suffix {
+        top: 2px;
+      }
+    }
+  }
+
+  .el-pagination__jump {
+    margin: 0;
+    height: 24px;
+    line-height: 24px;
+    .el-pagination__editor.el-input .el-input__inner {
+      height: 24px;
+    }
+  }
+}
+
+/**
+ * 重置element-dialog对话框样式
+ */
+
+ .el-dialog {
+  border-radius: 4px;
+  overflow: hidden;
+  background: #e8ebf1;  
+
+  .el-dialog__header {
+    padding: 0 20px;
+    background: #3e465f;
+    height: 40px;
+    line-height: 40px;
+  }
+
+  .el-dialog__title {
+    font-size: 16px;
+    color: #fff;
+  }
+
+  .el-dialog__headerbtn .el-dialog__close {
+    color: #fff;
+    font-size: 16px;
+  }
+
+  .el-dialog__headerbtn {
+    top: 12px;
+  }
+
+  .el-dialog__body {
+    padding: 20px;
+    box-sizing: border-box;
+    background: #e8ebf1;
+  }
+
+  .el-dialog__footer {
+    border-top: 1px solid #ccd4e4;
+    padding: 0 20px;
+    height: 60px;
+    line-height: 60px;
+    background: #e8ebf1;
+  }
+}
+/**
+ * 重置element-loading样式
+ */
+.el-loading-spinner .el-loading-text {
+  text-align: center;
+}
+
+/**
+* 重置table中hover颜色变化
+*/
+.el-table--enable-row-hover .el-table__body tr:hover > td {
+  background: #f1f4f7  !important;
+}
+
+// 修改下拉框的图标颜色
+.el-select .el-input .el-select__caret {
+  color: #000;
+}
+// 下拉选项样式重置
+.el-popper[x-placement^='bottom'] .popper__arrow,
+.el-popper[x-placement^="top"] .popper__arrow {
+	display: none;
+}
+// }
+.el-popper[x-placement^="bottom"] {
+  margin-top: 0.5px
+}
+// 按钮点击样式
+// .el-button--default:link, .el-button--default:visited,.el-button--default:hover,.el-button--default:active, .el-button--default:focus{
+//   color: #fff;
+//   border: 1px solid #3355AB;
+// }
+// 按钮点击样式
+.el-button:link, .el-button:visited,.el-button:hover,.el-button:active, .el-button:focus{
+  color: #fff;
+  background-color: #3355AB;
+  border: 1px solid #3355AB;
+}
+// 主要按钮border颜色
+.el-button--primary{
+  border-color: #3355AB !important;
+  color: #fff;
+  background: #3355AB;
+}
+// 修改递归的图标颜色
+.el-tree-node__expand-icon {
+  color: #000;
+}
+
+// 修改表格padding
+.el-table .cell {
+  padding: 0 20px;
+}
+
+// 修改table的边框颜色
+.el-table {
+  border: 1px solid #ccd4e4;
+}
+// 修改textare标签的样式
+.el-textarea__inner {
+  padding: 5px 10px;
+  border-color: #ccd4e4;
+  background-color:#F8F9FB;
+}
+
+// 修改input标签的样式
+.el-input__inner {
+  width: 100%;
+  padding: 0 10px;
+  border: 1px solid #ccd4e4;
+  background-color: #F8F9FB;
+  // border-radius: 3px !important;
+  color: #000;
+}
+// 输入框校验成功后回到灰色
+.el-form-item.is-success .el-input__inner {
+  border-color: #ccd4e4;
+}
+.el-input-group__append, .el-input-group__prepend {
+  border: 1px solid #ccd4e4;
+}
+.el-input-group__append {
+  border-left: 0;
+}
+.el-form-item.is-error .el-input__inner {
+  border-color: #F56C6C !important;
+}
+// 修改复选框label颜色
+.el-checkbox__label {
+  font-weight: normal;
+  color: #000;
+  font-size: 0.13rem;
+}
+// .el-form-item.is-required:not(.is-no-asterisk) .el-form-item__label-wrap>.el-form-item__label:before, .el-form-item.is-required:not(.is-no-asterisk)>.el-form-item__label:before {
+//   color: rgba(255,255,255,0.4);
+// }
+// 修改单选label颜色
+.el-radio__label {
+  font-weight: normal;
+  // color: #3355ab;
+}
+.el-radio__input.is-checked .el-radio__inner {
+  background: #3355ab;
+  border-color: #3355ab;
+}
+.el-radio__inner:hover, .el-checkbox__inner:hover  {
+  border-color: #3355ab;
+}
+.el-radio-button__inner {
+  border: 1px solid #3355ab;
+  border-left: 0;
+  border-radius: 3px 0 0 3px;
+  box-shadow: none!important;
+}
+.el-radio-button:first-child .el-radio-button__inner {
+  border-left: 1px solid #67b7dc;
+}
+// 选中input边框颜色
+.el-input__inner:focus {
+  outline: none;
+  border: 1px solid #3355AB ;
+}
+// 修改table表格分割线颜色
+.el-table td {
+  font-size: 13px;
+  border-bottom: 1px solid #EBE9EF;
+}
+// 表格字体大小
+.el-table--small {
+  font-size: 14px;
+}
+
+// 多选框内边距
+.el-select .el-tag {
+  margin-left: 10px;
+}
+/**
+ * 替换el-select的箭头的样式
+ */
+.el-select__caret.el-input__icon.el-icon-arrow-up {
+  &::before {
+    content: "";
+    display: inline-block;
+    transform: rotate(180deg) scale(0.5);
+    // background: url("../imgs/common/caret-down.png") no-repeat;
+    width: 24px;
+    height: 24px;
+    margin: 3px 0 0 0;
+  }
+}
+ // 处理input type = number的上下箭头
+ input::-webkit-outer-spin-button,
+ input::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+ }
+ input[type="number"]{
+   -moz-appearance: textfield;
+ }
+
+ // checkbox大小改为18px，对号全选图标并居中
+ .el-checkbox__inner {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #3355AB;
+}
+.el-checkbox__input.is-focus .el-checkbox__inner{
+  border-color: #3355AB;
+}
+.el-checkbox__input .el-checkbox__inner::after {
+  // 对号
+  border: 1px solid #fff;
+  // 不覆盖下面的 会 导致对号变形
+  box-sizing: content-box;
+  content: '';
+  border-left: 0;
+  border-top: 0;
+  // left: 5px;
+  position: absolute;
+  width: 4px;
+  height: 10px;
+}
+.el-checkbox__input.is-indeterminate .el-checkbox__inner::before {
+  // 全选
+  border: 1px solid #fff;
+  // 不覆盖下面的 会 导致对号变形
+  box-sizing: content-box;
+  content: '';
+  border-left: 0;
+  border-top: 0;
+  left: 0;
+  position: absolute;
+  // top: 5px;
+}
+.el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner {
+  border-color: #3355ab;
+  background: #3355ab;
+}
+.el-checkbox__input.is-checked+.el-checkbox__label {
+  color: #3355ab;
+}
+.el-table--border::after, .el-table--group::after, .el-table::before {
+  background: none !important;
+}
+
+// 表格头部加底部边框
+.el-table__header-wrapper {
+  border-bottom: 1px solid #EBE9EF;
+  th {
+    background-color: #f1f4f7 !important;
+    font-weight: bold;
+    color: #3E465F !important;
+    opacity: 0.6;
+    padding: 8px 0;
+  }
+}
+.el-table {
+  .el-table__body-wrapper {
+    table {
+      tbody {
+        tr:nth-child(2n + 1){
+          background: #fff !important;
+        }
+        tr:nth-child(2n){
+          background: rgba(0, 0, 0, .02) !important;
+          // background: #f8f9fb;
+        }
+        td {
+          padding: 8px 0;
+        }
+      }
+    }
+  }
+  .el-table--striped .el-table__body tr.el-table__row--striped td {
+    background: #e8ebf1;
+  }
+  // .el-input--small .el-input__inner {
+  //   height: 26px;
+  //   line-height: 26px;
+  // }
+
+}
+
+.el-image-viewer__img {
+  width: auto;
+  height: auto;
+}
+.el-image {
+  width: 100%;
+  height: 100%;
+}
+
+ .even-row {
+	background-color: #F8F9FB !important;
+}
+ .odd-row {
+	background-color: #EFF2F6 !important;
+}
+// 确认弹框提示样式
+.el-message-box__wrapper .el-message-box {
+	/deep/ .el-message-box__content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-top: 30px;
+		/deep/ .el-message-box__status {
+			position: relative !important;
+			font-size: 40px !important;
+		}
+	}
+	/deep/ .el-message-box__btns {
+		text-align: center;
+		margin: 10px auto;
+	}
+}
+
+.refresh-go{
+  transform:rotate(-180deg);
+  transition: all 0.5s;
+}
+// 表格数据可点击样式
+.click-detail {
+  color: #67B7DC;
+  cursor: pointer;
+}
+// 表格筛选标签
+.search-label {
+  color: #3E465F;
+}
+// show-overflow-tooltip属性宽度设置
+.el-tooltip__popper {
+  max-width: 400px;
+}
+
+.tooltip-focus {
+  outline: none !important;
+  border-color: none !important;
+  background-color: none !important;
+}
+// 列表中已完成图标
+.success-icon-class {
+  margin-top: -4px;
+  // margin-right: 5px;
+}
+// 全局按钮渐变 -选择
+.global-select {
+  background-image: linear-gradient(0deg, #222222 0%, #2e2f2f 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 2px;
+}
+// 高亮文字
+.highlight {
+  color: #3355AB;
+  cursor: pointer;
+}
